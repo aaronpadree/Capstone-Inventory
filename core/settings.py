@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'crispy_forms',                             # uses 'django-crispy-forms' app
     'login_required',                           # uses 'django-login-required-middleware' app
 
-    'homepage.apps.HomepageConfig',
-    'inventory.apps.InventoryConfig',
-    'transactions.apps.TransactionsConfig',
+    'homepage',
+    'inventory',
+    'transactions',
 
 ]
 
@@ -61,9 +61,8 @@ MIDDLEWARE = [
     
     'login_required.middleware.LoginRequiredMiddleware',    # middleware used for global login
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'homepage.apps.HomepageConfig.middleware.LoginRequiredMiddleware',  # Custom middleware
-    'inventory.apps.InventoryConfig.middleware.LoginRequiredMiddleware',
-    'transactions.apps.TransactionsConfig.middleware.LoginRequiredMiddleware',
+    'your_app.middleware.LoginRequiredMiddleware',  # Custom middleware
+    
 ]
 
 ROOT_URLCONF = 'core.urls'

@@ -57,9 +57,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Django auth middleware
+    
     'login_required.middleware.LoginRequiredMiddleware',    # middleware used for global login
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'your_app.middleware.LoginRequiredMiddleware',  # Custom middleware
+    
 ]
 
 ROOT_URLCONF = 'core.urls'

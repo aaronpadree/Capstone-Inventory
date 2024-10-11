@@ -61,8 +61,9 @@ MIDDLEWARE = [
     
     'login_required.middleware.LoginRequiredMiddleware',    # middleware used for global login
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'your_app.middleware.LoginRequiredMiddleware',  # Custom middleware
-    
+    'homepage.apps.HomepageConfig.middleware.LoginRequiredMiddleware',  # Custom middleware
+    'inventory.apps.InventoryConfig.middleware.LoginRequiredMiddleware',
+    'transactions.apps.TransactionsConfig.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'

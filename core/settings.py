@@ -43,10 +43,9 @@ INSTALLED_APPS = [
     'crispy_forms',                             # uses 'django-crispy-forms' app
     'login_required',                           # uses 'django-login-required-middleware' app
 
-    'homepage',
-    'inventory',
-    'transactions',
-
+    'homepage',                                 # your custom app for homepage
+    'inventory',                                # your custom app for inventory
+    'transactions',                             # your custom app for transactions
 ]
 
 MIDDLEWARE = [
@@ -54,16 +53,14 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Django auth middleware
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Django auth middleware
     
-    'login_required.middleware.LoginRequiredMiddleware',    # middleware used for global login
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'your_app.middleware.LoginRequiredMiddleware',  # Custom middleware
-    
+    'login_required.middleware.LoginRequiredMiddleware',    # Global login middleware from django-login-required-middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',           # WhiteNoise for static file serving
 ]
+
 
 ROOT_URLCONF = 'core.urls'
 

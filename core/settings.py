@@ -57,9 +57,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'login_required.middleware.LoginRequiredMiddleware',    # Global login middleware from django-login-required-middleware
+    'homepage.middleware.CustomLoginRequiredMiddleware',    # Your custom login required middleware
     'whitenoise.middleware.WhiteNoiseMiddleware',           # WhiteNoise for static file serving
 ]
+
 
 
 ROOT_URLCONF = 'core.urls'

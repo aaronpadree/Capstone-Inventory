@@ -38,28 +38,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'widget_tweaks',                            # uses 'django-widget-tweaks' app
-    'crispy_forms',                             # uses 'django-crispy-forms' app
-    'login_required',                           # uses 'django-login-required-middleware' app
-
-    'homepage',                                 # your custom app for homepage
-    'inventory',                                # your custom app for inventory
-    'transactions',                             # your custom app for transactions
+    'widget_tweaks',
+    'crispy_forms',
+    'login_required',
+    'homepage',  # Ensure this line is present
+    'inventory',
+    'transactions',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Django auth middleware
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    'homepage.middleware.CustomLoginRequiredMiddleware',    # Your custom login required middleware
-    'whitenoise.middleware.WhiteNoiseMiddleware',           # WhiteNoise for static file serving
+    'homepage.middleware.CustomLoginRequiredMiddleware',  # Correct path to your custom middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
 
 
 

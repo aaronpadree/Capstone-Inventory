@@ -26,7 +26,7 @@ SECRET_KEY = 'qyu(9l9v%^+r(vt#ecf+36#lis516#3bo5@bo-rd*d%a=!%8#!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,15 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
+
+    'widget_tweaks',                            # uses 'django-widget-tweaks' app
     'crispy_forms',
-    'login_required',
-    'homepage',  # Ensure this line is present
-    'inventory',
-    'transactions',
+    'crispy_bootstrap4',                             # uses 'django-crispy-forms' app
+    'login_required',                           # uses 'django-login-required-middleware' app
+
+    'homepage.apps.HomepageConfig',
+    'inventory.apps.InventoryConfig',
+    'transactions.apps.TransactionsConfig',
+
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,15 +56,11 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'login_required.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    'homepage.middleware.CustomLoginRequiredMiddleware',  # Correct path to your custom middleware
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
-
-
-
 
 ROOT_URLCONF = 'core.urls'
 
@@ -92,9 +90,6 @@ DATABASES = {
     'default': dj_database_url.parse(config("DATABASE_URL"))
 }
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -121,23 +116,17 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = False
+USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    
-]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'                     # bootstrap template crispy-form uses
 
